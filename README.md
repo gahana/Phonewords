@@ -2,6 +2,10 @@
 Phonewords are mnemonic phrases represented as alphanumeric equivalents of a telephone number.
 For more details see [Wikipedia](https://en.wikipedia.org/wiki/Phoneword).
 Phonewords is at the core an algorithmic problem and involves the use of Tries for efficient implementation. Tries are rarely used compared to other data structures and hence presents an interesting challenge to solve.
+The features include:
+
+- Exact word replacement
+- Multi word replacement
 
 # References
 The Phonewords implementation makes use of Ternary Search Trie implementation from [algs4](http://algs4.cs.princeton.edu/home/). 

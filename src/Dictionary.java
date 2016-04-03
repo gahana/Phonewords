@@ -30,11 +30,7 @@ public class Dictionary {
 
   private static Scanner loadFile(InputStream is) {
     try {
-      Scanner scanner;
-      // File file = new File(Dictionary.class.getResource(fileName).toURI());
-      // FileInputStream fis = new FileInputStream(file);
-      // InputStream fis = Dictionary.class.getResourceAsStream(fileName);
-      scanner = new Scanner(new BufferedInputStream(is), "UTF-8");
+      Scanner scanner = new Scanner(new BufferedInputStream(is), "UTF-8");
       scanner.useLocale(Locale.US);
       return scanner;
     } catch (Exception e) {
