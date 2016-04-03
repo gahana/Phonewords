@@ -132,4 +132,11 @@ public class PhoneWordsTest {
     assertEquals(toSet(Arrays.asList("A-BE", "A-AD", "BAD", "ACE")), toSet(dict.phoneWords("223")));
   }
 
+  @Test
+  public void oneDigitSkip() {
+    // assertEquals(toSet(Arrays.asList("CALL-9-ME")), toSet(dict.phoneWords("2255963")));
+    // assertEquals(toSet(Arrays.asList("CALL-9")), toSet(dict.phoneWords("22559")));
+    // assertEquals(toSet(Arrays.asList("9-CALL")), toSet(dict.phoneWords("92255")));
+  }
+
 }
