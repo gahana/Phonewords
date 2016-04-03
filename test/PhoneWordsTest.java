@@ -116,7 +116,7 @@ public class PhoneWordsTest {
 
   @Test
   public void twoDigitPhoneWords() {
-    assertTrue(dict.phoneWords("92").isEmpty());
+    assertTrue(dict.phoneWords("95").isEmpty());
     assertEquals(toSet(Arrays.asList("AD", "BE")), toSet(dict.phoneWords("23")));
     assertEquals(toSet(Arrays.asList("IF", "HE")), toSet(dict.phoneWords("43")));
   }
@@ -134,9 +134,9 @@ public class PhoneWordsTest {
 
   @Test
   public void oneDigitSkip() {
-    // assertEquals(toSet(Arrays.asList("CALL-9-ME")), toSet(dict.phoneWords("2255963")));
-    // assertEquals(toSet(Arrays.asList("CALL-9")), toSet(dict.phoneWords("22559")));
-    // assertEquals(toSet(Arrays.asList("9-CALL")), toSet(dict.phoneWords("92255")));
+    assertEquals(toSet(Arrays.asList("CALL-9-ME")), toSet(dict.phoneWords("2255963")));
+    assertEquals(toSet(Arrays.asList("CALL-9")), toSet(dict.phoneWords("22559")));
+    assertEquals(toSet(Arrays.asList("9-CALL")), toSet(dict.phoneWords("92255")));
   }
 
 }

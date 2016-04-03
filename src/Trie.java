@@ -115,6 +115,16 @@ public class Trie {
     for (char ch : options) {
       collectChar(x, ch, number, index, prefix, result);
     }
+    // Skip single digit case
+    if (result.isEmpty()) {
+      if ((index == number.length() - 1)) {
+        if (isHyphenEnding(prefix) && !isDigitEnding(prefix)) {
+          result.add(appendDigit(prefix, digit, true));
+        }
+      } else if (!isDigitEnding(prefix)) {
+        collectNumber(root, number, index + 1, appendDigit(prefix, digit, false), result);
+      }
+    }
   }
 
   private void collectChar(Node x, char ch, String number, int index, String prefix, List<String> result) {
@@ -132,6 +142,36 @@ public class Trie {
         if (x.isWord) result.add(prefix + x.c);
       }
     }
+  }
+
+  private boolean isSkipDigitCase(String number, int index, String prefix) {
+    if (index == number.length() - 1) return false;
+    if (isDigitEnding(prefix)) return false;
+    return true;
+  }
+
+  private boolean isDigitEnding(String prefix) {
+    if ("".equals(prefix)) return false;
+    if (prefix.length() < 2) return false;
+    char lastChar = prefix.charAt(prefix.length() - 1);
+    char penultimateChar = prefix.charAt(prefix.length() - 2);
+    return ('-' == lastChar) && Character.isDigit(penultimateChar);
+  }
+
+  private boolean isHyphenEnding(String prefix) {
+    if ("".equals(prefix)) return false;
+    char lastChar = prefix.charAt(prefix.length() - 1);
+    return '-' == lastChar;
+  }
+
+  private String appendDigit(String prefix, char digit, boolean end) {
+    StringBuilder sb = new StringBuilder(prefix);
+    if ((prefix.length() != 0) && ('-' != prefix.charAt(prefix.length() - 1))) {
+      sb.append("-");
+    }
+    sb.append(digit);
+    if (!end) sb.append("-");
+    return sb.toString();
   }
 
 }
