@@ -7,15 +7,21 @@ repositories {
 }
 
 dependencies {
-  compile files('lib/algs4.jar')
-  compile files('lib/stdlib.jar')
   testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
 sourceSets.main.java.srcDirs = ['src']
+sourceSets.main.resources.srcDirs = ['dictionary']
+
 sourceSets.test.java.srcDirs = ['test']
+sourceSets.test.resources.srcDirs = ['data/dictionary', 'data/input']
 
 checkstyle {
-  configFile = file("${project.rootDir}/config/google_checks.xml")
   toolVersion = '6.17'
+}
+
+jar {
+  manifest {
+    attributes('Main-Class': 'PhoneWords')
+  }
 }
